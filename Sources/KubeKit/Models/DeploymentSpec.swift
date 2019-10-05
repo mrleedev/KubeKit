@@ -1,11 +1,10 @@
 import ObjectMapper
 
-struct ResourceSelector {}
 struct DeploymentTemplate {}
 
 struct DeploymentSpec: ImmutableMappable {
     var replicas: Int
-    var selector: ResourceSelector
+    var selector: LabelSelector
     var template: DeploymentTemplate
     var strategy: DeploymentStrategy
     
