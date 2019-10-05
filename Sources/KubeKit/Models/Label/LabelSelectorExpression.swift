@@ -5,7 +5,7 @@ struct LabelSelectorExpression: ImmutableMappable {
     var op: LabelSelectorExpressionOperator
     var values: [String]
     
-    init(map: Map) {
+    init(map: Map) throws {
         key = try map.value("key")
         op = try map.value("operator")
         values = try map.value("values")
