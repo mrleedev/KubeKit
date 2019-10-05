@@ -4,6 +4,10 @@ import PackageDescription
 
 let package = Package(
     name: "KubeKit",
+    platforms: [.macOS(.v10_12),
+                .iOS(.v10),
+                .tvOS(.v10),
+                .watchOS(.v3)],
     products: [
         .library(
             name: "KubeKit",
@@ -16,7 +20,9 @@ let package = Package(
     targets: [
         .target(
             name: "KubeKit",
-            dependencies: []),
+            dependencies: ["Alamofire",
+                           "ObjectMapper",]
+        ),
         .testTarget(
             name: "KubeKitTests",
             dependencies: ["KubeKit"]),
