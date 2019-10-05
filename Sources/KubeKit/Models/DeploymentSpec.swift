@@ -1,0 +1,33 @@
+//
+//  DeploymentSpec.swift
+//  KubeKit
+//
+//  Created by Lee Machin on 05/10/2019.
+//  Copyright © 2019 Lee Machin. All rights reserved.
+//
+
+import ObjectMapper
+
+struct ResourceSelector {}
+struct DeploymentTemplate {}
+
+struct DeploymentSpec: ImmutableMappable {
+    var replicas: Int
+    var selector: ResourceSelector
+    var template: DeploymentTemplate
+    var strategy: DeploymentStrategy
+    
+    init(map: Map) throws {
+        replicas = try map.value("replicas")
+        selector = try map.value("selector")
+        template = try map.value("template")
+        strategy = try map.value("strategy")
+    }
+    
+    func mapping(map: Map) {
+        replicas >>> map["replicas"]
+        selector >>> map["selector"]
+        template >>> map["template"]
+        strategy >>> map["strategy"]
+    }
+}
