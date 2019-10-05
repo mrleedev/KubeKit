@@ -15,13 +15,11 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/tristanhimmelman/ObjectMapper.git", from: "3.5.0"),
-        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.0.0-rc.2"),
     ],
     targets: [
         .target(
             name: "KubeKit",
-            dependencies: ["Alamofire",
-                           "ObjectMapper",]
+            dependencies: ["ObjectMapper",]
         ),
         .testTarget(
             name: "KubeKitTests",
