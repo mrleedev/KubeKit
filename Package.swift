@@ -14,12 +14,12 @@ let package = Package(
             targets: ["KubeKit"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/tristanhimmelman/ObjectMapper.git", from: "3.5.0"),
+        
     ],
     targets: [
         .target(
             name: "KubeKit",
-            dependencies: ["ObjectMapper",]
+            dependencies: []
         ),
         .testTarget(
             name: "KubeKitTests",
