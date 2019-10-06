@@ -1,5 +1,62 @@
 import Foundation
 
-struct KubeConfig {
+struct KubeConfig: Codable {
+    let apiVersion: String
+    let clusters: [ClusterElement]
+    let contexts: [ContextElement]
+    let currentContext: String
+    let kind: String
+    let preferences: [String: String]
+    let users: [UserElement]
     
+    enum CodingKeys: String, CodingKey {
+        case apiVersion
+        case clusters
+        case contexts
+        case currentContext = "current-context"
+        case kind
+        case preferences
+        case users
+    }
+    
+    struct ClusterElement: Codable {
+        let name: String
+        let cluster: Cluster
+        
+        struct Cluster: Codable {
+            let certificateAuthorityData: String
+            let server: URL
+            
+            enum CodingKeys: String, CodingKey {
+                case certificateAuthorityData = "certificate-authority-data"
+                case server
+            }
+        }
+    }
+    
+    struct ContextElement: Codable {
+        let name: String
+        let Context: Context
+        
+        struct Context: Codable {
+            let cluster: String
+            let namespace: String
+            let user: String
+        }
+    }
+    
+    struct UserElement: Codable {
+        let name: String
+        let User: User
+        
+        struct User: Codable {
+            let clientCertificateData: String
+            let clientKeyData: String
+            
+            enum CodingKeys: String, CodingKey {
+                case clientCertificateData = "client-certificate-data"
+                case clientKeyData = "client-key-data"
+            }
+        }
+    }
 }
