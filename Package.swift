@@ -14,7 +14,7 @@ let package = Package(
             targets: ["KubeKit"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0"),
+        .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0")
     ],
     targets: [
         .target(
@@ -22,6 +22,6 @@ let package = Package(
             dependencies: ["Yams"]),
         .testTarget(
             name: "KubeKitTests",
-            dependencies: ["KubeKit"]),
+            dependencies: ["KubeKit",]),
     ]
 )
