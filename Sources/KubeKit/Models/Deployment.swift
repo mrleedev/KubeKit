@@ -22,7 +22,25 @@ struct Deployment: Codable {
         let strategy: Strategy
         
         struct Template: Codable {
+            let metadata: Metadata
             
+            struct TemplateSpec: Codable {
+                let containers: [Container]
+                let restartPolicy: RestartPolicy
+                let terminationGracePeriodSeconds: Int
+                let dnsPolicy: DNSPolicy
+                let securityContext: [String: String]
+                
+                enum RestartPolicy: String, Codable {
+                    case Always
+                    case Never
+                }
+                
+                enum DNSPolicy: String, Codable {
+                    case ClusterFirst
+                }
+                
+            }
         }
         
         struct Strategy: Codable {
