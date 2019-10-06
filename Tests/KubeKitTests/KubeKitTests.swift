@@ -1,15 +1,20 @@
 import XCTest
+import FileKit
+
 @testable import KubeKit
 
 final class KubeKitTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(KubeKit().text, "Hello, World!")
+    let repoRoot = URL(fileURLWithPath: #file.replacingOccurrences(of: "KubeKitTests/KubeKitTests.swift", with: ""))
+    
+    func testLoadConfigWithValidFilePath() {
+        let testConfigPath = repoRoot.appendingPathComponent("Resources/kubeconfig.yml").path
+        let config = try! KubeKit.loadConfig(fromFile: testConfigPath)
+        
+        XCTAssertEqual(config.kind, .Config)
+        XCTAssertEqual(config.currentContext, "context2")
     }
-
+    
     static var allTests = [
-        ("testExample", testExample),
+        ("testLoadConfigWithValidFilePath", testLoadConfigWithValidFilePath),
     ]
 }

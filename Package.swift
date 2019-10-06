@@ -14,15 +14,14 @@ let package = Package(
             targets: ["KubeKit"]),
     ],
     dependencies: [
-        
+        .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0")
     ],
     targets: [
         .target(
             name: "KubeKit",
-            dependencies: []
-        ),
+            dependencies: ["Yams"]),
         .testTarget(
             name: "KubeKitTests",
-            dependencies: ["KubeKit"]),
+            dependencies: ["KubeKit",]),
     ]
 )
