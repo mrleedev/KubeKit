@@ -1,5 +1,4 @@
 import XCTest
-import FileKit
 
 @testable import KubeKit
 
