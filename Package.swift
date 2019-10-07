@@ -11,7 +11,7 @@ let package = Package(
     products: [
         .library(
             name: "KubeKit",
-            targets: ["KubeKit"]),
+            targets: ["KubeKit"])
     ],
     dependencies: [
         .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0")
@@ -22,6 +22,6 @@ let package = Package(
             dependencies: ["Yams"]),
         .testTarget(
             name: "KubeKitTests",
-            dependencies: ["KubeKit",]),
+            dependencies: ["KubeKit"])
     ]
 )
