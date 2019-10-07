@@ -10,8 +10,8 @@ struct PortSpec: Codable {
     }
     
     enum PortProtocol: String, Codable {
-        case TCP
-        case UDP
-        case HTTP
+        case tcp = "TCP"
+        case udp = "UDP"
+        case http = "HTTP"
     }
 }

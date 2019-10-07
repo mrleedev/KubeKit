@@ -5,11 +5,11 @@ import XCTest
 final class KubeKitTests: XCTestCase {
     let repoRoot = URL(fileURLWithPath: #file.replacingOccurrences(of: "KubeKitTests/KubeKitTests.swift", with: ""))
     
-    func testLoadConfigWithValidFilePath() {
+    func testLoadConfigWithValidFilePath() throws {
         let testConfigPath = repoRoot.appendingPathComponent("Resources/kubeconfig.yml").path
-        let config = try! KubeKit.loadConfig(fromFile: testConfigPath)
+        let config = try KubeKit.loadConfig(fromFile: testConfigPath)
         
-        XCTAssertEqual(config.kind, .Config)
+        XCTAssertEqual(config.kind, .config)
         XCTAssertEqual(config.currentContext, "context2")
     }
     
