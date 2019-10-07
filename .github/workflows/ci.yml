@@ -8,10 +8,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     name: Run tests
     steps:
-    - name: Install Swift.
+    - name: Install Swift 5.1
       uses: YOCKOW/Action-setup-swift@master
       with:
         swift-version: '5.1'
     - uses: actions/checkout@master
-    - name: Run Swift
+    - name: Run tests
       run: swift test
