@@ -48,12 +48,24 @@ enum DeploymentSpecStrategy: Codable {
     case recreate(DeploymentStrategyRecreate)
     case rollingUpdate(DeploymentStrategyRollingUpdate)
 
+    enum CodingKeys: CodingKey {
+        case recreate
+        case rollingUpdate
+    }
+
     init(from decoder: Decoder) throws {
-        // todo
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        // finish
     }
 
     func encode(to encoder: Encoder) throws {
-        // todo
+        let container = try encoder.container(keyedBy: CodingKeys.self)
+        switch self {
+        case .recreate(let value):
+            try container.encode(value, forKey: .recreate)
+        case .rollingUpdate(let value):
+            try container.encode(value, forKey: .rollingUpdate)
+        }
     }
 }
 
