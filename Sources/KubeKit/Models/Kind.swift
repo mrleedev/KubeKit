@@ -1,6 +1,6 @@
 enum Kind: String, Codable {
-    case Deployment
-    case Pod
-    case Service
-    case Config
+    case deployment = "Deployment"
+    case pod = "Pod"
+    case service = "Service"
+    case config = "Config"
 }

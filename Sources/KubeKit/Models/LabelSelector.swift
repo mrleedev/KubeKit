@@ -6,19 +6,19 @@ struct LabelSelector: Codable {
 
     struct Expression: Codable {
         var key: String
-        var op: Operator
+        var operand: Operator
         var values: [String]
         
         enum CodingKeys: String, CodingKey {
             case key
-            case op = "operator"
+            case operand = "operator"
             case values
         }
         
         enum Operator: String, Codable {
-            case In = "in"
-            case NotIn = "notin"
-            case Exists = "exists"
+            case isIn = "In"
+            case notIn = "notin"
+            case exists
         }
     }
 

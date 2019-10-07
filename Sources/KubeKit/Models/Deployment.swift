@@ -32,12 +32,12 @@ struct Deployment: Codable {
                 let securityContext: [String: String]
                 
                 enum RestartPolicy: String, Codable {
-                    case Always
-                    case Never
+                    case always = "Always"
+                    case never = "Never"
                 }
                 
                 enum DNSPolicy: String, Codable {
-                    case ClusterFirst
+                    case clusterFirst = "ClusterFirst"
                 }
                 
             }
@@ -48,8 +48,8 @@ struct Deployment: Codable {
             var rollingUpdate: RollingUpdate?
             
             enum StrategyType: String, Codable {
-                case Recreate
-                case RollingUpdate
+                case recreate = "Recreate"
+                case rollingUpdate = "RollingUpdate"
             }
 
             struct RollingUpdate: Codable {
