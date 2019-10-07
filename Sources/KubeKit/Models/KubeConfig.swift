@@ -8,7 +8,7 @@ struct KubeConfig: Codable {
     let kind: Kind
     let preferences: [String: String]
     let users: [UserElement]
-    
+
     enum CodingKeys: String, CodingKey {
         case apiVersion
         case clusters
@@ -18,7 +18,7 @@ struct KubeConfig: Codable {
         case preferences
         case users
     }
-    
+
     struct ClusterElement: Codable {
         let name: String
         let cluster: Cluster
@@ -35,7 +35,7 @@ struct KubeConfig: Codable {
             }
         }
     }
-    
+
     struct ContextElement: Codable {
         let name: String
         let context: Context
@@ -46,7 +46,7 @@ struct KubeConfig: Codable {
             let user: String
         }
     }
-    
+
     struct UserElement: Codable {
         let name: String
         let user: User

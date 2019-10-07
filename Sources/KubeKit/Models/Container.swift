@@ -7,9 +7,9 @@ struct Container: Codable {
     let resources: [String: String]
     let terminationMessagePath: String
     let imagePullPolicy: ImagePullPolicy
-    
+
     enum ImagePullPolicy: String, Codable {
-        case Always
-        case IfNotPresent
+        case always = "Always"
+        case ifNotPresent = "IfNotPresent"
     }
 }
