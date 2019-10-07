@@ -14,5 +14,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: GitHub Action for SwiftLint
+    - name: Run linter
       uses: norio-nomura/action-swiftlint@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
